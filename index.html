@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tonniper Tech Kenya | Roofing & Construction Solutions</title>
+  <meta name="description" content="Tonniper Tech Kenya supplies premium roofing & construction materials: Mabati sheets, LGS trusses, uPVC gutters, Decra tiles, asphalt shingles, insulation, fasteners, wood grain tiles & more.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --navy: #1e3a8a;
+      --terracotta: #f97316;
+      --light-bg: #fafafa;
+      --card-bg: white;
+      --text: #1e293b;
+      --gray-border: #e2e8f0;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background-color: white;
+      overflow-x: hidden;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.1rem;
+      border-radius: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-size: 1.05rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: white;
+      border: 2px solid var(--terracotta);
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--terracotta);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.25);
+    }
+
+    /* HEADER */
+    header {
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.5rem;
+    }
+    .logo {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .logo span {
+      color: var(--terracotta);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--terracotta);
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.7rem;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: var(--light-bg);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('./assets/roofing.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding: 0 1.5rem;
+      color: white;
+    }
+    .hero-content span {
+      color: var(--light-bg);
+      font-weight: 700;
+    }
+    .hero h1 {
+      font-size: 2.9rem;
+      font-weight: 800;
+      margin-bottom: 1.3rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 3.8rem; }
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2.2rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5.5rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 3.5rem;
+      color: var(--navy);
+    }
+    .section-title span {
+      color: var(--terracotta);
+    }
+
+    /* ABOUT */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.6rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .about-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .about-text h3 {
+      font-size: 1.9rem;
+      margin-bottom: 1.3rem;
+      color: var(--navy);
+    }
+    .about-text p {
+      margin-bottom: 1.4rem;
+      font-size: 1.05rem;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .value-card {
+      background: var(--light-bg);
+      padding: 1.2rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    .value-card i {
+      font-size: 1.8rem;
+      color: var(--terracotta);
+      margin-bottom: 0.8rem;
+    }
+
+    /* PRODUCT SECTIONS */
+    .product-category {
+      margin-bottom: 4rem;
+    }
+    .category-title {
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 1.8rem;
+      text-align: center;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 1.1rem;
+      padding: 1.8rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+    .product-card img {
+      height: 200px;
+      object-fit: contain;
+      margin-bottom: 1.2rem;
+    }
+    .product-card h4 {
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    /* PLANT OVERVIEW */
+    .plant-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .plant-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.2rem;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1.2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+    }
+    .service-card h4 {
+      color: var(--navy);
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+    .gallery-item {
+      border-radius: 1.1rem;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* CONTACT */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .contact-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .map-container {
+      height: 400px;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.95rem;
+      border: 1px solid var(--gray-border);
+      border-radius: 0.85rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+    }
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 4rem 0 2.5rem;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+    }
+    .footer-logo span {
+      color: var(--terracotta);
+    }
+    .social-icons {
+      display: flex;
+      gap: 1.1rem;
+      margin-top: 1.2rem;
+    }
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.25rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social-icons a:hover {
+      background: var(--terracotta);
+      transform: translateY(-3px);
+    }
+    .footer-links h4 {
+      font-size: 1.35rem;
+      margin-bottom: 1.3rem;
+      font-weight: 700;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.85rem;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 2.2rem;
+      margin-top: 2.2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2.2rem;
+        gap: 1.6rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.35s ease;
+      }
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* WHATSAPP FLOAT */
+    #whatsappFloat {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 64px;
+      height: 64px;
+      background: var(--terracotta);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+      z-index: 999;
+      display: none;
+    }
+    @media (max-width: 1023px) {
+      #whatsappFloat {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Tonniper <span>Tech</span></div>
+      <button class="mobile-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about Us.html">About Us</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg" id="parallaxBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Complete Roofing & Construction Solutions</h1>
+      <p><span>Tonniper Tech Kenya</span> supplies premium materials for every building project across Kenya.</p>
+      <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="background: var(--light-bg);">
+    <div class="container">
+      <h2 class="section-title">About <span>Us</span></h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Building Kenya’s Future, One Roof at a Time</h3>
+          <p>Tonniper Tech Kenya is a comprehensive provider of roofing and construction solutions, offering a wide range of high-quality products for residential, commercial, and industrial projects.</p>
+          <p>With a commitment to innovation, durability, and customer satisfaction, we’ve become a trusted partner for contractors, developers, and homeowners nationwide.</p>
+          
+          <div class="values-grid">
+            <div class="value-card">
+              <i class="fas fa-shield-alt"></i>
+              <div>Quality Assurance</div>
+            </div>
+            <div class="value-card">
+              <i class="fas fa-truck"></i>
+              <div>Nationwide Delivery</div>
+            </div>
+            <div class="value-card">
+              <i class="fas fa-headset"></i>
+              <div>Expert Support</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img src="assets/different-metal-roof-types-hdr-img.webp" style="width:100%; border-radius:5px; box-shadow:0 12px 30px rgba(0,0,0,0.15);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOFING MATERIALS -->
+  <section id="roofing">
+    <div class="container">
+      <h2 class="section-title">Roofing <span>Materials</span></h2>
+      
+      <div class="product-category">
+        <h3 class="category-title">Corrugated Sheets & Profiles</h3>
+        <div class="products-grid">
+          <div class="product-card">
+            <img src="assets/corrugated-colored-mabati-roofing-sheets-in-kenya.webp" alt="Mabati Sheets">
+            <h4>Mabati Sheets</h4>
+            <p>PWF, Safal, Rafiki – 0.35mm to 0.50mm</p>
+          </div>
+          <div class="product-card">
+            <img src="assets/decra roof tiles.jpg" alt="Decra Roof Tiles">
+            <h4>Decra Roof Tiles</h4>
+            <p>Stone-coated steel tiles – 50+ year lifespan</p>
+          </div>
+          <div class="product-card">
+            <img src="assets/asphalt shingles.jpg" alt="Asphalt Shingles">
+            <h4>Asphalt Shingles</h4>
+            <p>Lightweight, waterproof, modern finish</p>
+          </div>
+           <div class="product-card">
+            <img src="assets/box profiles.jpg" alt="Asphalt Shingles">
+            <h4>Box profile & Crimped</h4>
+            <p>lightweight, fast and easy to fit and offer a more cost-effective. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-category">
+        <h3 class="category-title">Structural & Accessories</h3>
+        <div class="products-grid">
+          <div class="product-card">
+            <img src="assets/lgs trussels.jpg" alt="LGS Trusses">
+            <h4>LGS Trusses</h4>
+            <p>Light Gauge Steel – rust-proof, precision-engineered</p>
+          </div>
+          <div class="product-card">
+            <img src="assets/upvc gutters.jpg" alt="uPVC Gutters">
+            <h4>uPVC Gutters</h4>
+            <p>5-inch systems with brackets & downpipes</p>
+          </div>
+          <div class="product-card">
+            <img src="assets/roof insulation.jpg" alt="Roof Insulation">
+            <h4>Roof Insulation</h4>
+            <p>Foam & reflective barriers for heat control</p>
+          </div>
+          <div class="product-card">
+            <img src="assets/roof nails.jpg" alt="Fasteners & Nails">
+            <h4>Fasteners & Nails</h4>
+            <p>Galvanized nails, screws, rubber washers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSTRUCTION PRODUCTS -->
+  <section id="construction" style="background: var(--light-bg);">
+    <div class="container">
+      <h2 class="section-title">Construction <span>Products</span></h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="assets/wood grain tiles.jpg" alt="Wood Grain Floor Tiles">
+          <h4>Wood Grain Floor Tiles</h4>
+          <p>Waterproof, scratch-resistant, aesthetic finish</p>
+        </div>
+        <div class="product-card">
+          <img src="assets/bracket.webp" alt="General Fittings">
+          <h4>General Fittings</h4>
+          <p>Brackets, clips, connectors & hardware</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANT OVERVIEW -->
+  <section id="plant">
+    <div class="container">
+      <h2 class="section-title">Plant & <span>Factory</span></h2>
+      <div class="plant-content">
+        <div>
+          <img src="assets/roof factory.jpg" alt="Factory" style="width:100%; border-radius:1.2rem; box-shadow:0 12px 30px rgba(0,0,0,0.15);">
+        </div>
+        <div>
+          <h3>Our Nairobi Manufacturing Facility</h3>
+          <p>Our state-of-the-art plant in Nairobi handles cutting, profiling, and packaging of roofing sheets and LGS trusses with precision CNC machinery.</p>
+          <p>We maintain strict quality control and inventory systems to ensure fast turnaround and consistent product standards.</p>
+          <p><strong>Capacity:</strong> 5,000 sq.m of sheets per week</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" style="background: var(--light-bg);">
+    <div class="container">
+      <h2 class="section-title">Our <span>Services</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h4>Material Supply</h4>
+          <p>Full range of roofing & construction products delivered to site.</p>
+        </div>
+        <div class="service-card">
+          <h4>Roof Design Consultation</h4>
+          <p>Free technical advice on sheet selection, truss design, and drainage.</p>
+        </div>
+        <div class="service-card">
+          <h4>Installation Support</h4>
+          <p>Partnered certified installers available for complex projects.</p>
+        </div>
+        <div class="service-card">
+          <h4>On-Site Training</h4>
+          <p>We train your team on proper handling and installation techniques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Project <span>Gallery</span></h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/residential roof.jpg" alt="Residential Roof">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/commercial roof.jpg" alt="Commercial Roof">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/lgs truss installation.jpg" alt="LGS Truss Installation">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gutter instal.jpg" alt="Gutter System">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get in <span>Touch</span></h2>
+      <div class="contact-layout">
+        <div>
+          <h3>Visit Us or Send a Message</h3>
+          <p><strong>Address:</strong> Nairobi Industrial Area, Kenya</p>
+          <p><strong>Phone:</strong> <a href="tel:+2547XXXXXXXX" style="color:var(--terracotta);">+254 7XX XXX XXX</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/2547XXXXXXXX" style="color:var(--terracotta);">Chat Now</a></p>
+          <p><strong>Email:</strong> info@tonnipertech.co.ke</p>
+          
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.859573723893!2d36.814976!3d-1.27683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f115d5e5c5b8d%3A0x5f6a9e4b8a9e4b8a!2sNairobi%20Industrial%20Area!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div>
+          <h3>Request a Quote</h3>
+          <form id="quoteForm">
+            <div class="form-group">
+              <input type="text" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group">
+              <select required>
+                <option value="" disabled selected>Product Category</option>
+                <option value="mabati">Mabati Sheets</option>
+                <option value="lgs">LGS Trusses</option>
+                <option value="gutters">uPVC Gutters</option>
+                <option value="decra">Decra Tiles</option>
+                <option value="shingles">Asphalt Shingles</option>
+                <option value="insulation">Roof Insulation</option>
+                <option value="fasteners">Fasteners & Nails</option>
+                <option value="tiles">Wood Grain Floor Tiles</option>
+                <option value="fittings">General Fittings</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Project details, quantity, location..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">Tonniper <span>Tech</span></div>
+          <p>Comprehensive roofing and construction solutions for a stronger Kenya.</p>
+          <div class="social-icons">
+            <a href="https://wa.me/2547XXXXXXXX" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#roofing">Roofing Materials</a></li>
+            <li><a href="#gallery">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#roofing">Mabati Sheets</a></li>
+            <li><a href="#roofing">LGS Trusses</a></li>
+            <li><a href="#construction">Floor Tiles</a></li>
+            <li><a href="#roofing">Decra Tiles</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Tonniper Tech Kenya. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/2547XXXXXXXX" id="whatsappFloat" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Mobile Menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Parallax
+    window.addEventListener('scroll', () => {
+      const parallaxBg = document.getElementById('parallaxBg');
+      if (parallaxBg) {
+        parallaxBg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+      }
+    });
+
+    // Form
+    document.getElementById('quoteForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('✅ Thank you! Our team will contact you shortly.');
+      e.target.reset();
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          navLinks.classList.remove('active');
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

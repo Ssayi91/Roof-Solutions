@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products | Tonniper Tech Kenya</title>
+  <meta name="description" content="Premium roofing & construction products: Mabati sheets, LGS trusses, uPVC gutters, Decra tiles, asphalt shingles, insulation, fasteners, wood grain tiles & fittings.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --navy: #1e3a8a;
+      --terracotta: #f97316;
+      --light-bg: #fafafa;
+      --card-bg: white;
+      --text: #1e293b;
+      --gray-border: #e2e8f0;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background-color: white;
+      overflow-x: hidden;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    header {
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.5rem;
+    }
+    .logo {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .logo span {
+      color: var(--terracotta);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: var(--terracotta);
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.7rem;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--light-bg);
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=85');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 0 1.5rem;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 3.4rem; }
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 3rem;
+      color: var(--navy);
+    }
+    .section-title span {
+      color: var(--terracotta);
+    }
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+      color: #475569;
+    }
+
+    /* PRODUCTS GRID */
+    .category-section {
+      margin-bottom: 5rem;
+    }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--gray-border);
+    }
+    .category-header i {
+      color: var(--terracotta);
+      font-size: 1.8rem;
+    }
+    .category-header h2 {
+      font-size: 1.8rem;
+      color: var(--navy);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2.2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+    .product-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8fafc;
+      padding: 1rem;
+    }
+    .product-img img {
+      max-width: 100%;
+      max-height: 140px;
+      object-fit: contain;
+    }
+    .product-info {
+      padding: 1.6rem;
+    }
+    .product-info h3 {
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+    }
+    .product-info p {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+    .btn-small {
+      display: inline-block;
+      background: var(--terracotta);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* FACTORY SECTION */
+    .factory-section {
+      background: var(--light-bg);
+      border-radius: 1.5rem;
+      padding: 3.5rem;
+      margin: 4rem 0;
+    }
+    .factory-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .factory-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--terracotta);
+    }
+    .stat-label {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 3.5rem 0 2.5rem;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+    }
+    .footer-logo span {
+      color: var(--terracotta);
+    }
+    .social-icons {
+      display: flex;
+      gap: 1.1rem;
+      margin-top: 1.2rem;
+    }
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.25rem;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      background: var(--terracotta);
+    }
+    .footer-links h4 {
+      font-size: 1.35rem;
+      margin-bottom: 1.3rem;
+      font-weight: 700;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.85rem;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 2.2rem;
+      margin-top: 2.2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2.2rem;
+        gap: 1.6rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.35s ease;
+      }
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* WHATSAPP FLOAT */
+    #whatsappFloat {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 62px;
+      height: 62px;
+      background: var(--terracotta);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+      z-index: 999;
+      display: none;
+    }
+    @media (max-width: 1023px) {
+      #whatsappFloat {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Tonniper <span>Tech</span></div>
+      <button class="mobile-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about Us.html">About Us</a></li>
+        <li><a href="product.html" class="active">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Premium Building Products</h1>
+      <p>Everything you need for roofing & construction — all in one place.</p>
+    </div>
+  </section>
+
+  <!-- ROOFING MATERIALS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Roofing <span>Materials</span></h2>
+      <p class="section-subtitle">
+        High-performance solutions for every roof type — from budget sheds to luxury homes.
+      </p>
+
+      <!-- Corrugated Sheets -->
+      <div class="category-section">
+        <div class="category-header">
+          <i class="fas fa-layer-group"></i>
+          <h2>Corrugated Sheets & Profiles</h2>
+        </div>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?auto=format&fit=crop&w=600&q=80" alt="Mabati Sheets">
+            </div>
+            <div class="product-info">
+              <h3>Mabati Sheets</h3>
+              <p>PWF, Safal, Rafiki — 0.35mm to 0.50mm. Ideal for homes, offices & sheds.</p>
+              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/decra-tile.png" alt="Decra Roof Tiles">
+            </div>
+            <div class="product-info">
+              <h3>Decra Roof Tiles</h3>
+              <p>Stone-coated steel tiles. 50+ year lifespan. Wind & fire resistant.</p>
+              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/asphalt-shingle.png" alt="Asphalt Shingles">
+            </div>
+            <div class="product-info">
+              <h3>Asphalt Shingles</h3>
+              <p>Lightweight, modern finish. Perfect for pitched roofs in urban homes.</p>
+              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Structural & Accessories -->
+      <div class="category-section">
+        <div class="category-header">
+          <i class="fas fa-tools"></i>
+          <h2>Structural & Accessories</h2>
+        </div>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/lgs-truss.png" alt="LGS Trusses">
+            </div>
+            <div class="product-info">
+              <h3>LGS Trusses</h3>
+              <p>Light Gauge Steel — rust-proof, precision-engineered, fast installation.</p>
+              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/upvc-gutter.png" alt="uPVC Gutters">
+            </div>
+            <div class="product-info">
+              <h3>uPVC Gutters</h3>
+              <p>5-inch systems with brackets & downpipes. UV-resistant & maintenance-free.</p>
+              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/insulation.png" alt="Roof Insulation">
+            </div>
+            <div class="product-info">
+              <h3>Roof Insulation</h3>
+              <p>Foam & reflective barriers to reduce heat by up to 40%.</p>
+              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/fasteners.png" alt="Fasteners & Nails">
+            </div>
+            <div class="product-info">
+              <h3>Fasteners & Nails</h3>
+              <p>Galvanized nails, screws, and rubber washers — prevent leaks at fix points.</p>
+              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANT/FACTORY OVERVIEW (Integrated for Trust) -->
+  <section>
+    <div class="container">
+      <div class="factory-section">
+        <h2 class="section-title" style="margin:0 0 2rem; color:white;">Why Our Factory Matters</h2>
+        <div class="factory-content">
+          <div>
+            <img src="https://images.unsplash.com/photo-1581091226825-cf1d2e5b7a9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Factory" style="width:100%; border-radius:1.2rem; box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+          </div>
+          <div>
+            <p style="margin-bottom:1.5rem; color:#1e293b;">
+              Our Nairobi factory ensures <strong>quality control, faster delivery, and cost savings</strong> — passed directly to you.
+            </p>
+            <p style="margin-bottom:1.5rem; color:#1e293b;">
+              Every sheet is cut to size, every truss engineered in-house, and every product inspected before dispatch.
+            </p>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number">10,000</div>
+                <div class="stat-label">sq.ft facility</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5K+</div>
+                <div class="stat-label">sheets/week</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">trusses/month</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">on-time delivery</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSTRUCTION PRODUCTS -->
+  <section style="background: var(--light-bg);">
+    <div class="container">
+      <h2 class="section-title">Construction <span>Products</span></h2>
+      <p class="section-subtitle">
+        Finish your project with durable, aesthetic interior & exterior solutions.
+      </p>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/wood-grain-tile.png" alt="Wood Grain Floor Tiles">
+          </div>
+          <div class="product-info">
+            <h3>Wood Grain Floor Tiles</h3>
+            <p>Waterproof, scratch-resistant, and realistic wood finish for modern interiors.</p>
+            <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/fittings.png" alt="General Fittings">
+          </div>
+          <div class="product-info">
+            <h3>General Fittings</h3>
+            <p>Brackets, clips, connectors, and hardware for roofing & construction.</p>
+            <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">Tonniper <span>Tech</span></div>
+          <p>Comprehensive roofing and construction solutions for a stronger Kenya.</p>
+          <div class="social-icons">
+            <a href="https://wa.me/2547XXXXXXXX" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#roofing">Roofing Materials</a></li>
+            <li><a href="#gallery">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#roofing">Mabati Sheets</a></li>
+            <li><a href="#roofing">LGS Trusses</a></li>
+            <li><a href="#construction">Floor Tiles</a></li>
+            <li><a href="#roofing">Decra Tiles</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Tonniper Tech Kenya. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/2547XXXXXXXX" id="whatsappFloat" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Mobile Menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

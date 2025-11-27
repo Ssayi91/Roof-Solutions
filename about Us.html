@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Tonniper Tech Kenya</title>
+  <meta name="description" content="Learn about Tonniper Tech Kenya – your trusted partner for roofing & construction solutions across Nairobi, Mombasa, and Kenya.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --navy: #1e3a8a;
+      --terracotta: #f97316;
+      --light-bg: #fafafa;
+      --card-bg: white;
+      --text: #1e293b;
+      --gray-border: #e2e8f0;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background-color: white;
+      overflow-x: hidden;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    header {
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.5rem;
+    }
+    .logo {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .logo span {
+      color: var(--terracotta);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: var(--terracotta);
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.7rem;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/residential\ roof.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 0 1.5rem;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 3.8rem; }
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5.5rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 3.5rem;
+      color: var(--navy);
+    }
+    .section-title span {
+      color: var(--terracotta);
+    }
+
+    /* STORY */
+    .story-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .story-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .story-text p {
+      margin-bottom: 1.4rem;
+      font-size: 1.05rem;
+    }
+
+    /* ICON GRID */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .icon-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--light-bg);
+      border-radius: 1.2rem;
+      transition: transform 0.3s;
+    }
+    .icon-card:hover {
+      transform: translateY(-6px);
+    }
+    .icon-card i {
+      font-size: 2.2rem;
+      color: var(--terracotta);
+      margin-bottom: 1.2rem;
+    }
+    .icon-card h3 {
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 3rem auto;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: var(--terracotta);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    .timeline-item {
+      padding: 1.2rem 2.5rem;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    .timeline-content {
+      padding: 1.5rem;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 1rem;
+    }
+    .timeline-year {
+      font-weight: 800;
+      color: var(--terracotta);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 768px) {
+      .timeline::after {
+        left: 20px;
+      }
+      .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 0;
+      }
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+    }
+
+    /* FACTORY */
+    .factory-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .factory-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--terracotta);
+    }
+    .stat-label {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    /* COMMITMENT */
+    .commitment {
+      background: linear-gradient(135deg, var(--navy), #3b82f6);
+      color: white;
+      text-align: center;
+      padding: 5rem 0;
+      border-radius: 1.5rem;
+      margin-top: 3rem;
+    }
+    .commitment h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .commitment p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 3.5rem 0 2.5rem;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+    }
+    .footer-logo span {
+      color: var(--terracotta);
+    }
+    .social-icons {
+      display: flex;
+      gap: 1.1rem;
+      margin-top: 1.2rem;
+    }
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.25rem;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      background: var(--terracotta);
+    }
+    .footer-links h4 {
+      font-size: 1.35rem;
+      margin-bottom: 1.3rem;
+      font-weight: 700;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.85rem;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 2.2rem;
+      margin-top: 2.2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2.2rem;
+        gap: 1.6rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.35s ease;
+      }
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      .mobile-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Tonniper <span>Tech</span></div>
+      <button class="mobile-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about Us.html" class="active">About Us</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="parallaxBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Building Trust Since Day One</h1>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Our <span>Story</span></h2>
+      <div class="story-content">
+        <div class="story-text">
+          <p>
+            <strong>Tonniper Tech Kenya</strong> was founded in 2020 with a simple mission: to provide <em>high-quality, affordable, and reliable</em> roofing and construction materials to builders, contractors, and homeowners across Kenya.
+          </p>
+          <p>
+            What started as a small supplier of <strong>Mabati sheets</strong> in Nairobi has grown into a comprehensive solutions provider, offering everything from <strong>LGS trusses</strong> and <strong>uPVC gutters</strong> to <strong>Decra tiles</strong> and <strong>wood grain flooring</strong>.
+          </p>
+          <p>
+            Today, we serve clients in Nairobi, Mombasa, Kisumu, Nakuru, and beyond — always with the same commitment to quality, integrity, and customer empowerment.
+          </p>
+        </div>
+        <div>
+          <img src="assets/box profiles.jpg" alt="Team at work" style="width:90%; border-radius:5px; box-shadow:0 12px 30px rgba(0,0,0,0.15);">
+        </div>
+      </div>
+
+      <!-- VALUES -->
+      <h3 style="text-align:center; margin:3rem 0 2rem; color:var(--navy);">Our Core Values</h3>
+      <div class="icon-grid">
+        <div class="icon-card">
+          <i class="fas fa-award"></i>
+          <h3>Quality First</h3>
+          <p>We source and supply only certified, durable materials that meet Kenyan building standards.</p>
+        </div>
+        <div class="icon-card">
+          <i class="fas fa-handshake"></i>
+          <h3>Customer Trust</h3>
+          <p>Transparency in pricing, honest advice, and after-sales support you can count on.</p>
+        </div>
+        <div class="icon-card">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Innovation</h3>
+          <p>We embrace modern materials like LGS and Decra to offer better, faster, smarter solutions.</p>
+        </div>
+        <div class="icon-card">
+          <i class="fas fa-people-carry"></i>
+          <h3>Partnership</h3>
+          <p>We grow when our clients succeed — your success is our business model.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MILESTONES -->
+  <section style="background: var(--light-bg);">
+    <div class="container">
+      <h2 class="section-title">Our <span>Journey</span></h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2020</div>
+            <p>Company founded in Nairobi with focus on Mabati sheet distribution.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2021</div>
+            <p>Launched LGS truss division and partnered with Safal & PWF.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2022</div>
+            <p>Expanded to Mombasa; introduced Decra tiles and uPVC gutters.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2023</div>
+            <p>Built our own profiling plant in Industrial Area, Nairobi.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2024</div>
+            <p>Added construction products: wood grain tiles, insulation, and fittings.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <p>Serving 50+ clients nationwide with same-day delivery in Nairobi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTORY & CAPACITY -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Plant & <span>Capacity</span></h2>
+      <div class="factory-content">
+        <div>
+          <img src="assets/roof factory.jpg" alt="Factory" style="width:100%; border-radius:1.2rem; box-shadow:0 12px 30px rgba(0,0,0,0.15);">
+        </div>
+        <div>
+          <h3>Our Nairobi Manufacturing Facility</h3>
+          <p>
+            Located in the Nairobi Industrial Area, our 10,000 sq.ft factory is equipped with:
+          </p>
+          <ul style="margin: 1.5rem 0 2rem; padding-left: 1.5rem;">
+            <li style="margin-bottom: 0.8rem;">✅ CNC cutting & profiling machines</li>
+            <li style="margin-bottom: 0.8rem;">✅ LGS truss fabrication line</li>
+            <li style="margin-bottom: 0.8rem;">✅ Quality control lab</li>
+            <li>✅ Secure warehousing (500+ tons capacity)</li>
+          </ul>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">5,000+</div>
+              <div class="stat-label">sq.m sheets/week</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">200+</div>
+              <div class="stat-label">Trusses/month</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">On-time delivery</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Satisfied clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMITMENT -->
+  <section>
+    <div class="container">
+      <div class="commitment">
+        <h2>Our Promise to Kenya</h2>
+        <p>
+          We don’t just sell materials — we invest in Kenya’s built environment. 
+          Every sheet we supply, every truss we fabricate, and every tile we deliver 
+          is part of a larger mission: <strong>to build safer, stronger, and more beautiful spaces for generations to come.</strong>
+        </p>
+        <a href="index.html#contact" class="btn" style="background:var(--terracotta); color:white; padding:0.9rem 2.2rem; border-radius:0.8rem; text-decoration:none; font-weight:700; display:inline-block;">
+          Partner With Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+ <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">Tonniper <span>Tech</span></div>
+          <p>Comprehensive roofing and construction solutions for a stronger Kenya.</p>
+          <div class="social-icons">
+            <a href="https://wa.me/2547XXXXXXXX" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#roofing">Roofing Materials</a></li>
+            <li><a href="#gallery">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#roofing">Mabati Sheets</a></li>
+            <li><a href="#roofing">LGS Trusses</a></li>
+            <li><a href="#construction">Floor Tiles</a></li>
+            <li><a href="#roofing">Decra Tiles</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Tonniper Tech Kenya. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Parallax
+    window.addEventListener('scroll', () => {
+      const parallaxBg = document.getElementById('parallaxBg');
+      if (parallaxBg) {
+        parallaxBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+      }
+    });
+  </script>
+</body>
+</html>

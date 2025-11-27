@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Tonniper Tech Kenya</title>
+  <meta name="description" content="Get in touch with Tonniper Tech Kenya in Utawala, Nairobi. Request a quote, ask about roofing sheets, LGS trusses, gutters, tiles & more.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --navy: #1e3a8a;
+      --terracotta: #f97316;
+      --light-bg: #fafafa;
+      --card-bg: white;
+      --text: #1e293b;
+      --gray-border: #e2e8f0;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background-color: white;
+      overflow-x: hidden;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    header {
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.5rem;
+    }
+    .logo {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .logo span {
+      color: var(--terracotta);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: var(--terracotta);
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.7rem;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--light-bg);
+    }
+    .hero-content {
+      max-width: 700px;
+      padding: 0 1.5rem;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--navy);
+    }
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 3rem; }
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 4.5rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 3rem;
+      color: var(--navy);
+    }
+    .section-title span {
+      color: var(--terracotta);
+    }
+
+    /* CONTACT LAYOUT */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .contact-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .contact-info h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      color: var(--navy);
+    }
+    .contact-details {
+      margin-bottom: 2.5rem;
+    }
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      align-items: flex-start;
+    }
+    .contact-item i {
+      color: var(--terracotta);
+      font-size: 1.2rem;
+      margin-top: 0.3rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--light-bg);
+      border-radius: 50%;
+      color: var(--navy);
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social-link:hover {
+      background: var(--terracotta);
+      color: white;
+      transform: translateY(-3px);
+    }
+    .map-container {
+      height: 400px;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* FORM */
+    .form-group {
+      margin-bottom: 1.6rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.95rem;
+      border: 1px solid var(--gray-border);
+      border-radius: 0.85rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+    }
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .btn-submit {
+      background: var(--terracotta);
+      color: white;
+      border: none;
+      padding: 0.95rem 2rem;
+      border-radius: 0.8rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+    .btn-submit:hover {
+      background: #ea580c;
+    }
+
+    /* FAQ SECTION */
+    .faq-section {
+      background: var(--light-bg);
+    }
+    .faq-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .tab-btn {
+      padding: 0.7rem 1.6rem;
+      background: white;
+      border: 2px solid var(--gray-border);
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--terracotta);
+      color: white;
+      border-color: var(--terracotta);
+    }
+    .faq-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .faq-question {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+    .faq-answer {
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 3.5rem 0 2.5rem;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+    }
+    .footer-logo span {
+      color: var(--terracotta);
+    }
+    .social-icons {
+      display: flex;
+      gap: 1.1rem;
+      margin-top: 1.2rem;
+    }
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.25rem;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      background: var(--terracotta);
+    }
+    .footer-links h4 {
+      font-size: 1.35rem;
+      margin-bottom: 1.3rem;
+      font-weight: 700;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.85rem;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 2.2rem;
+      margin-top: 2.2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2.2rem;
+        gap: 1.6rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.35s ease;
+      }
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .faq-tabs {
+        gap: 0.5rem;
+      }
+      .tab-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* WHATSAPP FLOAT */
+    #whatsappFloat {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 64px;
+      height: 64px;
+      background: var(--terracotta);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Tonniper <span>Tech</span></div>
+      <button class="mobile-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about Us.html">About Us</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Get in Touch with Us</h1>
+      <p>We’re here to help with your roofing & construction needs in Nairobi and beyond.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO + MAP -->
+ 
+
+  <!-- CONTACT FORM -->
+  <section style="background: var(--light-bg);">
+    <div class="container">
+      <h2 class="section-title">Send a <span>Message</span></h2>
+      <div style="max-width: 700px; margin: 0 auto;">
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="Your Full Name" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Phone Number (WhatsApp preferred)" required>
+          </div>
+          <div class="form-group">
+            <select required>
+              <option value="" disabled selected>Product Category</option>
+              <option value="mabati">Mabati Sheets</option>
+              <option value="lgs">LGS Trusses</option>
+              <option value="gutters">uPVC Gutters</option>
+              <option value="decra">Decra Roof Tiles</option>
+              <option value="shingles">Asphalt Shingles</option>
+              <option value="insulation">Roof Insulation</option>
+              <option value="fasteners">Fasteners & Nails</option>
+              <option value="tiles">Wood Grain Floor Tiles</option>
+              <option value="fittings">General Fittings</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+      
+      <div class="faq-tabs">
+        <button class="tab-btn active" data-tab="roofing">Roofing Materials</button>
+        <button class="tab-btn" data-tab="construction">Construction Products</button>
+        <button class="tab-btn" data-tab="delivery">Delivery & Service</button>
+      </div>
+
+      <div class="faq-content">
+        <!-- Roofing FAQs -->
+        <div id="faq-roofing" class="faq-group">
+          <div class="faq-item">
+            <div class="faq-question">Which Mabati sheet is best for a home?</div>
+            <div class="faq-answer">PWF 0.45mm offers the best balance of durability (25–30 years) and cost. Safal is premium for coastal areas.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Do you supply rubber washers with nails?</div>
+            <div class="faq-answer">Yes! We recommend using rubber washers with every nail to prevent leaks. Sold in packs of 100.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">How long does Decra tile last?</div>
+            <div class="faq-answer">50+ years with minimal maintenance. It’s stone-coated steel — resistant to wind, fire, and rust.</div>
+          </div>
+        </div>
+
+        <!-- Construction FAQs -->
+        <div id="faq-construction" class="faq-group" style="display:none;">
+          <div class="faq-item">
+            <div class="faq-question">Are wood grain tiles waterproof?</div>
+            <div class="faq-answer">Yes! They’re made of high-density PVC with a wood finish — ideal for kitchens, bathrooms, and wet areas.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Do you supply installation accessories?</div>
+            <div class="faq-answer">Yes — brackets, clips, adhesives, and leveling tools for both roofing and flooring products.</div>
+          </div>
+        </div>
+
+        <!-- Delivery FAQs -->
+        <div id="faq-delivery" class="faq-group" style="display:none;">
+          <div class="faq-item">
+            <div class="faq-question">Do you deliver to Utawala?</div>
+            <div class="faq-answer">Yes! Same-day delivery in Nairobi (including Utawala) for orders placed before 2 PM.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">What are your payment options?</div>
+            <div class="faq-answer">M-Pesa, bank transfer, or cash on delivery. We also offer 50% upfront for large orders.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Can I visit your factory?</div>
+            <div class="faq-answer">Absolutely! We’re located in the Nairobi Industrial Area. Call ahead for a guided tour.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section>
+    <div class="container">
+      <h2 class="section-title">Visit or <span>Message</span> Us</h2>
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h3>Our Office</h3>
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>Utawala, Nairobi, Kenya</div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div><a href="tel:+2547XXXXXXXX" style="color:inherit; text-decoration:underline;">+254 7XX XXX XXX</a></div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <a href="https://wa.me/2547XXXXXXXX" style="color:var(--terracotta); text-decoration:underline;">
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>info@tonnipertech.co.ke</div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <div>Mon–Sat: 7:00 AM – 6:00 PM</div>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 2.5rem;">Follow Us</h3>
+          <div class="social-links">
+            <a href="https://wa.me/2547XXXXXXXX" class="social-link" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.972304342728!2d36.9532833!3d-1.3120567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1b3f1e3b3b3b%3A0x5b3b3b3b3b3b3b3b!2sUtawala%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1710000000000!5m2!1sen!2ske" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">Tonniper <span>Tech</span></div>
+          <p>Comprehensive roofing and construction solutions for a stronger Kenya.</p>
+          <div class="social-icons">
+            <a href="https://wa.me/2547XXXXXXXX" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#roofing">Roofing Materials</a></li>
+            <li><a href="#gallery">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#roofing">Mabati Sheets</a></li>
+            <li><a href="#roofing">LGS Trusses</a></li>
+            <li><a href="#construction">Floor Tiles</a></li>
+            <li><a href="#roofing">Decra Tiles</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Tonniper Tech Kenya. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/2547XXXXXXXX" id="whatsappFloat" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Mobile Menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // FAQ Tabs
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Show selected FAQ group
+        const tab = button.getAttribute('data-tab');
+        document.querySelectorAll('.faq-group').forEach(group => {
+          group.style.display = 'none';
+        });
+        document.getElementById(`faq-${tab}`).style.display = 'block';
+      });
+    });
+
+    // Form Submission
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('✅ Thank you! We’ll contact you shortly via WhatsApp or phone.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
