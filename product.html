@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Products | Tonniper Tech Kenya</title>
-  <meta name="description" content="Premium roofing & construction products: Mabati sheets, LGS trusses, uPVC gutters, Decra tiles, asphalt shingles, insulation, fasteners, wood grain tiles & fittings.">
+  <title>Shop Products | Tonniper Tech Kenya</title>
+  <meta name="description" content="Buy roofing & construction materials online: Mabati sheets, LGS trusses, uPVC gutters, Decra tiles, fasteners & more. Delivery in Nairobi.">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -25,8 +25,7 @@
       font-family: 'Montserrat', sans-serif;
       color: var(--text);
       line-height: 1.6;
-      background-color: white;
-      overflow-x: hidden;
+      background-color: var(--light-bg);
     }
     .container {
       width: 100%;
@@ -69,121 +68,92 @@
     .nav-links a:hover {
       color: var(--terracotta);
     }
-    .mobile-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.7rem;
-      color: var(--navy);
-      cursor: pointer;
-    }
 
     /* HERO */
     .hero {
-      position: relative;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      background: var(--light-bg);
-    }
-    .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=85');
-      background-size: cover;
-      background-position: center;
-      z-index: 0;
-    }
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-      padding: 0 1.5rem;
+      background: linear-gradient(135deg, var(--navy), #3b82f6);
       color: white;
+      padding: 4rem 0;
+      text-align: center;
     }
     .hero h1 {
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       font-weight: 800;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
-    @media (min-width: 768px) {
-      .hero h1 { font-size: 3.4rem; }
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 5rem 0;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2.3rem;
-      font-weight: 800;
-      margin-bottom: 3rem;
-      color: var(--navy);
-    }
-    .section-title span {
-      color: var(--terracotta);
-    }
-    .section-subtitle {
-      text-align: center;
+    .hero p {
       max-width: 700px;
-      margin: 0 auto 3rem;
-      font-size: 1.1rem;
-      color: #475569;
+      margin: 0 auto;
+      opacity: 0.95;
     }
 
-    /* PRODUCTS GRID */
-    .category-section {
-      margin-bottom: 5rem;
-    }
-    .category-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+    /* CART SUMMARY (Fixed on Desktop) */
+    .cart-summary {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1.2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       margin-bottom: 2.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid var(--gray-border);
     }
-    .category-header i {
-      color: var(--terracotta);
-      font-size: 1.8rem;
-    }
-    .category-header h2 {
-      font-size: 1.8rem;
+    .cart-header {
+      font-weight: 700;
       color: var(--navy);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
+    .cart-items {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 1.2rem;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .cart-total {
+      font-weight: 700;
+      color: var(--terracotta);
+      font-size: 1.3rem;
+      margin: 1rem 0;
+    }
+    .btn-checkout {
+      background: var(--terracotta);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 0.9rem;
+      border-radius: 0.8rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-checkout:hover {
+      background: #ea580c;
+    }
+    .btn-checkout:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* PRODUCTS */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 2.2rem;
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
     .product-card {
       background: white;
       border-radius: 1.2rem;
       overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-      transition: transform 0.3s;
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
     }
     .product-img {
-      height: 180px;
+      height: 160px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -192,76 +162,88 @@
     }
     .product-img img {
       max-width: 100%;
-      max-height: 140px;
+      max-height: 120px;
       object-fit: contain;
     }
     .product-info {
-      padding: 1.6rem;
+      padding: 1.4rem;
     }
     .product-info h3 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--navy);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
     }
-    .product-info p {
-      font-size: 0.95rem;
-      color: #4b5563;
-      margin-bottom: 1.2rem;
-      line-height: 1.5;
+    .price {
+      font-weight: 700;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
     }
-    .btn-small {
-      display: inline-block;
-      background: var(--terracotta);
-      color: white;
-      padding: 0.5rem 1.2rem;
-      border-radius: 0.6rem;
-      font-size: 0.95rem;
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      background: var(--light-bg);
+      border: 1px solid var(--gray-border);
+      border-radius: 0.5rem;
       font-weight: 600;
-      text-decoration: none;
+      cursor: pointer;
+    }
+    .qty-input {
+      width: 50px;
+      height: 32px;
+      text-align: center;
+      border: 1px solid var(--gray-border);
+      border-radius: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .btn-add {
+      width: 100%;
+      background: white;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+      padding: 0.7rem;
+      border-radius: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-add:hover {
+      background: var(--navy);
+      color: white;
+    }
+    .btn-added {
+      background: var(--terracotta) !important;
+      color: white !important;
+      border-color: var(--terracotta) !important;
     }
 
-    /* FACTORY SECTION */
-    .factory-section {
-      background: var(--light-bg);
-      border-radius: 1.5rem;
-      padding: 3.5rem;
-      margin: 4rem 0;
-    }
-    .factory-content {
+    /* LAYOUT */
+    .shop-layout {
       display: grid;
       grid-template-columns: 1fr;
       gap: 2.5rem;
-      align-items: center;
     }
-    @media (min-width: 768px) {
-      .factory-content {
-        grid-template-columns: 1fr 1fr;
+    @media (min-width: 992px) {
+      .shop-layout {
+        grid-template-columns: 3fr 1fr;
+      }
+      .cart-summary {
+        position: sticky;
+        top: 100px;
       }
     }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .stat-item {
-      text-align: center;
-    }
-    .stat-number {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--terracotta);
-    }
-    .stat-label {
-      font-size: 0.95rem;
-      color: var(--text);
-    }
 
-    /* FOOTER */
+  /* FOOTER */
     footer {
       background: var(--navy);
       color: white;
-      padding: 3.5rem 0 2.5rem;
+      padding: 4rem 0 2.5rem;
     }
     .footer-content {
       display: grid;
@@ -297,9 +279,11 @@
       color: white;
       font-size: 1.25rem;
       text-decoration: none;
+      transition: all 0.3s;
     }
     .social-icons a:hover {
       background: var(--terracotta);
+      transform: translateY(-3px);
     }
     .footer-links h4 {
       font-size: 1.35rem;
@@ -327,28 +311,13 @@
       font-size: 0.95rem;
       color: rgba(255,255,255,0.75);
     }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 78px;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        padding: 2.2rem;
-        gap: 1.6rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        transform: translateY(-150%);
-        transition: transform 0.35s ease;
-      }
-      .nav-links.active {
-        transform: translateY(0);
-      }
-      .mobile-toggle {
-        display: block;
-      }
+    .delivery-info {
+      background: #f0fdf4;
+      border-radius: 1rem;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      color: var(--navy);
     }
 
     /* WHATSAPP FLOAT */
@@ -368,12 +337,6 @@
       text-decoration: none;
       box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
       z-index: 999;
-      display: none;
-    }
-    @media (max-width: 1023px) {
-      #whatsappFloat {
-        display: flex;
-      }
     }
   </style>
 </head>
@@ -383,13 +346,10 @@
   <header>
     <nav class="navbar">
       <div class="logo">Tonniper <span>Tech</span></div>
-      <button class="mobile-toggle" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about Us.html">About Us</a></li>
-        <li><a href="product.html" class="active">Products</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about Us.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -397,183 +357,42 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Premium Building Products</h1>
-      <p>Everything you need for roofing & construction — all in one place.</p>
+    <div class="container">
+      <h1>Shop Building Materials</h1>
+      <p>Add items to your order and send via WhatsApp. Delivery across Nairobi & Kenya.</p>
     </div>
   </section>
 
-  <!-- ROOFING MATERIALS -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Roofing <span>Materials</span></h2>
-      <p class="section-subtitle">
-        High-performance solutions for every roof type — from budget sheds to luxury homes.
-      </p>
-
-      <!-- Corrugated Sheets -->
-      <div class="category-section">
-        <div class="category-header">
-          <i class="fas fa-layer-group"></i>
-          <h2>Corrugated Sheets & Profiles</h2>
-        </div>
-        <div class="products-grid">
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?auto=format&fit=crop&w=600&q=80" alt="Mabati Sheets">
-            </div>
-            <div class="product-info">
-              <h3>Mabati Sheets</h3>
-              <p>PWF, Safal, Rafiki — 0.35mm to 0.50mm. Ideal for homes, offices & sheds.</p>
-              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/decra-tile.png" alt="Decra Roof Tiles">
-            </div>
-            <div class="product-info">
-              <h3>Decra Roof Tiles</h3>
-              <p>Stone-coated steel tiles. 50+ year lifespan. Wind & fire resistant.</p>
-              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/asphalt-shingle.png" alt="Asphalt Shingles">
-            </div>
-            <div class="product-info">
-              <h3>Asphalt Shingles</h3>
-              <p>Lightweight, modern finish. Perfect for pitched roofs in urban homes.</p>
-              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Structural & Accessories -->
-      <div class="category-section">
-        <div class="category-header">
-          <i class="fas fa-tools"></i>
-          <h2>Structural & Accessories</h2>
-        </div>
-        <div class="products-grid">
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/lgs-truss.png" alt="LGS Trusses">
-            </div>
-            <div class="product-info">
-              <h3>LGS Trusses</h3>
-              <p>Light Gauge Steel — rust-proof, precision-engineered, fast installation.</p>
-              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/upvc-gutter.png" alt="uPVC Gutters">
-            </div>
-            <div class="product-info">
-              <h3>uPVC Gutters</h3>
-              <p>5-inch systems with brackets & downpipes. UV-resistant & maintenance-free.</p>
-              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/insulation.png" alt="Roof Insulation">
-            </div>
-            <div class="product-info">
-              <h3>Roof Insulation</h3>
-              <p>Foam & reflective barriers to reduce heat by up to 40%.</p>
-              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/fasteners.png" alt="Fasteners & Nails">
-            </div>
-            <div class="product-info">
-              <h3>Fasteners & Nails</h3>
-              <p>Galvanized nails, screws, and rubber washers — prevent leaks at fix points.</p>
-              <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- DELIVERY NOTE -->
+  <div class="container">
+    <div class="delivery-info">
+      🚚 <strong>Delivery:</strong> Nationwide Delivery.
     </div>
-  </section>
+  </div>
 
-  <!-- PLANT/FACTORY OVERVIEW (Integrated for Trust) -->
-  <section>
-    <div class="container">
-      <div class="factory-section">
-        <h2 class="section-title" style="margin:0 0 2rem; color:white;">Why Our Factory Matters</h2>
-        <div class="factory-content">
-          <div>
-            <img src="https://images.unsplash.com/photo-1581091226825-cf1d2e5b7a9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Factory" style="width:100%; border-radius:1.2rem; box-shadow:0 10px 25px rgba(0,0,0,0.2);">
-          </div>
-          <div>
-            <p style="margin-bottom:1.5rem; color:#1e293b;">
-              Our Nairobi factory ensures <strong>quality control, faster delivery, and cost savings</strong> — passed directly to you.
-            </p>
-            <p style="margin-bottom:1.5rem; color:#1e293b;">
-              Every sheet is cut to size, every truss engineered in-house, and every product inspected before dispatch.
-            </p>
-            <div class="stats-grid">
-              <div class="stat-item">
-                <div class="stat-number">10,000</div>
-                <div class="stat-label">sq.ft facility</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">5K+</div>
-                <div class="stat-label">sheets/week</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">200+</div>
-                <div class="stat-label">trusses/month</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">on-time delivery</div>
-              </div>
-            </div>
-          </div>
+  <!-- SHOP LAYOUT -->
+  <section class="container">
+    <div class="shop-layout">
+      <div>
+        <h2 style="font-size:1.8rem; color:var(--navy); margin-bottom:1.5rem;">Roofing & Construction Products</h2>
+        <div class="products-grid" id="productsGrid">
+          <!-- Products will be loaded by JS -->
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CONSTRUCTION PRODUCTS -->
-  <section style="background: var(--light-bg);">
-    <div class="container">
-      <h2 class="section-title">Construction <span>Products</span></h2>
-      <p class="section-subtitle">
-        Finish your project with durable, aesthetic interior & exterior solutions.
-      </p>
-
-      <div class="products-grid">
-        <div class="product-card">
-          <div class="product-img">
-            <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/wood-grain-tile.png" alt="Wood Grain Floor Tiles">
-          </div>
-          <div class="product-info">
-            <h3>Wood Grain Floor Tiles</h3>
-            <p>Waterproof, scratch-resistant, and realistic wood finish for modern interiors.</p>
-            <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
-          </div>
+      <div class="cart-summary">
+        <div class="cart-header">Your Order</div>
+        <div class="cart-items" id="cartItems">
+          <p style="text-align:center; color:#64748b;">No items added yet</p>
         </div>
-        <div class="product-card">
-          <div class="product-img">
-            <img src="https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/fittings.png" alt="General Fittings">
-          </div>
-          <div class="product-info">
-            <h3>General Fittings</h3>
-            <p>Brackets, clips, connectors, and hardware for roofing & construction.</p>
-            <a href="https://wa.me/2547XXXXXXXX" class="btn-small">Get Quote</a>
-          </div>
-        </div>
+        <div class="cart-total">Total: <span id="cartTotal">KES 0</span></div>
+        <button class="btn-checkout" id="checkoutBtn" disabled>
+          Paybill: 123456
+          Account: YOUR NAME
+        </button>
+        <p style="font-size:0.85rem; margin-top:1rem; text-align:center; color:#64748b;">
+          We'll call to confirm delivery & payment (M-Pesa/paybill).
+        </p>
       </div>
     </div>
   </section>
@@ -615,17 +434,191 @@
       </div>
     </div>
   </footer>
+
   <!-- WhatsApp Float -->
   <a href="https://wa.me/2547XXXXXXXX" id="whatsappFloat" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <script>
-    // Mobile Menu
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    // Product data
+    const products = [
+      {
+        id: 1,
+        name: "PWF Mabati Sheet (0.45mm)",
+        price: 1100,
+        image: "https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?auto=format&fit=crop&w=600&q=80",
+        category: "roofing"
+      },
+      {
+        id: 2,
+        name: "Safal Premium Sheet (0.50mm)",
+        price: 1400,
+        image: "https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?auto=format&fit=crop&w=600&q=80",
+        category: "roofing"
+      },
+      {
+        id: 3,
+        name: "Rafiki Budget Sheet (0.35mm)",
+        price: 750,
+        image: "https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?auto=format&fit=crop&w=600&q=80",
+        category: "roofing"
+      },
+      {
+        id: 4,
+        name: "Galvanized Roofing Nails",
+        price: 350,
+        unit: "per kg",
+        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/roofing-nails.png",
+        category: "accessories"
+      },
+      {
+        id: 5,
+        name: "Rubber Washers (100 pcs)",
+        price: 200,
+        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/rubber-washers.png",
+        category: "accessories"
+      },
+      {
+        id: 6,
+        name: "uPVC Gutter System (10ft)",
+        price: 2200,
+        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/upvc-gutter.png",
+        category: "roofing"
+      },
+      {
+        id: 7,
+        name: "LGS Truss (6ft)",
+        price: 1800,
+        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/lgs-truss.png",
+        category: "structural"
+      },
+      {
+        id: 8,
+        name: "Wood Grain Floor Tile",
+        price: 850,
+        unit: "per tile",
+        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/wood-grain-tile.png",
+        category: "construction"
+      }
+    ];
+
+    // Cart state
+    let cart = [];
+
+    // Render products
+    const productsGrid = document.getElementById('productsGrid');
+    products.forEach(product => {
+      const unit = product.unit ? ` (${product.unit})` : '';
+      productsGrid.innerHTML += `
+        <div class="product-card">
+          <div class="product-img">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
+          <div class="product-info">
+            <h3>${product.name}</h3>
+            <div class="price">KES ${product.price.toLocaleString()}${unit}</div>
+            <div class="qty-control">
+              <button class="qty-btn" onclick="adjustQty(${product.id}, -1)">-</button>
+              <input type="text" class="qty-input" id="qty-${product.id}" value="0" readonly>
+              <button class="qty-btn" onclick="adjustQty(${product.id}, 1)">+</button>
+            </div>
+            <button class="btn-add" id="btn-${product.id}" onclick="addToCart(${product.id})">
+              Add to Order
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    // Quantity adjustment
+    window.adjustQty = function(productId, change) {
+      const input = document.getElementById(`qty-${productId}`);
+      let qty = parseInt(input.value) || 0;
+      qty = Math.max(0, qty + change);
+      input.value = qty;
+    };
+
+    // Add to cart
+    window.addToCart = function(productId) {
+      const input = document.getElementById(`qty-${productId}`);
+      const qty = parseInt(input.value) || 0;
+      if (qty <= 0) return;
+
+      const product = products.find(p => p.id === productId);
+      const existing = cart.find(item => item.id === productId);
+      
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ ...product, qty });
+      }
+
+      input.value = 0;
+      document.getElementById(`btn-${productId}`).textContent = "Added!";
+      document.getElementById(`btn-${productId}`).className = "btn-add btn-added";
+      setTimeout(() => {
+        document.getElementById(`btn-${productId}`).textContent = "Add to Order";
+        document.getElementById(`btn-${productId}`).className = "btn-add";
+      }, 1500);
+
+      updateCart();
+    };
+
+    // Update cart display
+    function updateCart() {
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.getElementById('cartTotal');
+      const checkoutBtn = document.getElementById('checkoutBtn');
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p style="text-align:center; color:#64748b;">No items added yet</p>';
+        cartTotal.textContent = 'KES 0';
+        checkoutBtn.disabled = true;
+        return;
+      }
+
+      let total = 0;
+      let itemsHTML = '';
+      cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        itemsHTML += `
+          <div class="cart-item">
+            <span>${item.qty}x ${item.name}</span>
+            <span>KES ${itemTotal.toLocaleString()}</span>
+          </div>
+        `;
+      });
+
+      cartItems.innerHTML = itemsHTML;
+      cartTotal.textContent = `KES ${total.toLocaleString()}`;
+      checkoutBtn.disabled = false;
+
+      // Scroll to cart on desktop
+      if (window.innerWidth >= 992) {
+        document.querySelector('.cart-summary').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Checkout via WhatsApp
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      let message = "Hi Tonniper Tech, I'd like to place an order:\n\n";
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        message += `- ${item.name}: ${item.qty} @ KES ${item.price.toLocaleString()} = KES ${itemTotal.toLocaleString()}\n`;
+      });
+
+      message += `\nTotal: KES ${total.toLocaleString()}\n`;
+      message += "Delivery Location: [Please specify]\n";
+      message += "Thank you!";
+
+      // URL-encode and open WhatsApp
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/2547XXXXXXXX?text=${encoded}`, '_blank');
     });
   </script>
 </body>
