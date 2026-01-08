@@ -1,625 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shop Products | Tonniper Tech Kenya</title>
-  <meta name="description" content="Buy roofing & construction materials online: Mabati sheets, LGS trusses, uPVC gutters, Decra tiles, fasteners & more. Delivery in Nairobi.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --navy: #1e3a8a;
-      --terracotta: #f97316;
-      --light-bg: #fafafa;
-      --card-bg: white;
-      --text: #1e293b;
-      --gray-border: #e2e8f0;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-      background-color: var(--light-bg);
-    }
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    header {
-      background: white;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.1rem 1.5rem;
-    }
-    .logo {
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: var(--navy);
-    }
-    .logo span {
-      color: var(--terracotta);
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.4rem;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    .nav-links a:hover {
-      color: var(--terracotta);
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roofing Sheets Catalogue | Tonniper Tech Kenya</title>
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, var(--navy), #3b82f6);
-      color: white;
-      padding: 4rem 0;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 0.8rem;
-    }
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto;
-      opacity: 0.95;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    /* CART SUMMARY (Fixed on Desktop) */
-    .cart-summary {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 1.2rem;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      margin-bottom: 2.5rem;
-    }
-    .cart-header {
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-    .cart-items {
-      max-height: 200px;
-      overflow-y: auto;
-      margin-bottom: 1.2rem;
-    }
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.95rem;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid var(--gray-border);
-    }
-    .cart-total {
-      font-weight: 700;
-      color: var(--terracotta);
-      font-size: 1.3rem;
-      margin: 1rem 0;
-    }
-    .btn-checkout {
-      background: var(--terracotta);
-      color: white;
-      border: none;
-      width: 100%;
-      padding: 0.9rem;
-      border-radius: 0.8rem;
-      font-weight: 700;
-      font-size: 1.05rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .btn-checkout:hover {
-      background: #ea580c;
-    }
-    .btn-checkout:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
+<style>
+:root {
+  --primary: #C96A1B;
+  --primary-hover: #B85F18;
+  --text-dark: #2F2F2F;
+  --text-muted: #5A5551;
+}
 
-    /* PRODUCTS */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    .product-card {
-      background: white;
-      border-radius: 1.2rem;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
-    }
-    .product-img {
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f8fafc;
-      padding: 1rem;
-    }
-    .product-img img {
-      max-width: 100%;
-      max-height: 120px;
-      object-fit: contain;
-    }
-    .product-info {
-      padding: 1.4rem;
-    }
-    .product-info h3 {
-      font-size: 1.2rem;
-      color: var(--navy);
-      margin-bottom: 0.6rem;
-    }
-    .price {
-      font-weight: 700;
-      color: var(--terracotta);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-    .qty-control {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-bottom: 1rem;
-    }
-    .qty-btn {
-      width: 32px;
-      height: 32px;
-      background: var(--light-bg);
-      border: 1px solid var(--gray-border);
-      border-radius: 0.5rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .qty-input {
-      width: 50px;
-      height: 32px;
-      text-align: center;
-      border: 1px solid var(--gray-border);
-      border-radius: 0.5rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .btn-add {
-      width: 100%;
-      background: white;
-      color: var(--navy);
-      border: 2px solid var(--navy);
-      padding: 0.7rem;
-      border-radius: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .btn-add:hover {
-      background: var(--navy);
-      color: white;
-    }
-    .btn-added {
-      background: var(--terracotta) !important;
-      color: white !important;
-      border-color: var(--terracotta) !important;
-    }
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #fefcf9;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
 
-    /* LAYOUT */
-    .shop-layout {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-    @media (min-width: 992px) {
-      .shop-layout {
-        grid-template-columns: 3fr 1fr;
-      }
-      .cart-summary {
-        position: sticky;
-        top: 100px;
-      }
-    }
+/* CONTAINER */
+.container {
+  width: min(1400px, 100% - 2rem);
+  margin: auto;
+  padding: 1rem 0;
+}
 
-  /* FOOTER */
-    footer {
-      background: var(--navy);
-      color: white;
-      padding: 4rem 0 2.5rem;
-    }
-    .footer-content {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-    @media (min-width: 768px) {
-      .footer-content {
-        grid-template-columns: 2fr 1fr 1fr;
-      }
-    }
-    .footer-logo {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 1.2rem;
-    }
-    .footer-logo span {
-      color: var(--terracotta);
-    }
-    .social-icons {
-      display: flex;
-      gap: 1.1rem;
-      margin-top: 1.2rem;
-    }
-    .social-icons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 50%;
-      color: white;
-      font-size: 1.25rem;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    .social-icons a:hover {
-      background: var(--terracotta);
-      transform: translateY(-3px);
-    }
-    .footer-links h4 {
-      font-size: 1.35rem;
-      margin-bottom: 1.3rem;
-      font-weight: 700;
-    }
-    .footer-links ul {
-      list-style: none;
-    }
-    .footer-links li {
-      margin-bottom: 0.85rem;
-    }
-    .footer-links a {
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
-    }
-    .footer-links a:hover {
-      color: white;
-    }
-    .copyright {
-      text-align: center;
-      padding-top: 2.2rem;
-      margin-top: 2.2rem;
-      border-top: 1px solid rgba(255,255,255,0.2);
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.75);
-    }
-    .delivery-info {
-      background: #f0fdf4;
-      border-radius: 1rem;
-      padding: 1.2rem;
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
-      color: var(--navy);
-    }
+/* NAV */
+nav {
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-weight: 700;
+}
+.nav-left strong { color: var(--primary); }
+.nav-left span { color: var(--text-muted); font-size: 0.9rem; }
+.nav-right a {
+  margin-left: 2rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.nav-right a:hover { color: var(--primary); }
 
-    /* WHATSAPP FLOAT */
-    #whatsappFloat {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 62px;
-      height: 62px;
-      background: var(--terracotta);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.7rem;
-      text-decoration: none;
-      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
-      z-index: 999;
-    }
-  </style>
+/* HERO */
+.products-hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.products-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--text-dark);
+}
+.products-hero p {
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 1rem auto;
+}
+
+/* CATALOGUE */
+.products {
+  padding: 2rem 0 4rem;
+}
+.section-header h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.section-header p {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.product-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: start;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(201,106,27,0.05);
+}
+.product-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(201,106,27,0.3);
+}
+
+.product-meta small {
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+.product-meta h3 {
+  margin: 0.5rem 0;
+  color: var(--text-dark);
+}
+.product-meta p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.product-action {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.product-specs p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.product-action strong {
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+.product-action button {
+  background: var(--primary);
+  color: var(--text-dark);
+  border: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.product-action button:hover {
+  background: var(--primary-hover);
+  color: white;
+}
+
+/* CART */
+.cart {
+  position: fixed;
+  bottom: 1.5rem; right: 1.5rem;
+  background: var(--primary);
+  color: var(--text-dark);
+  padding: 0.7rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(201,106,27,0.4);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+/* FOOTER */
+.site-footer {
+  background: var(--text-dark);
+  color: #fff;
+  padding: 4rem 1rem 2rem;
+}
+.site-footer a { color: #fff; text-decoration: none; }
+.site-footer a:hover { color: var(--primary); }
+.footer-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.footer-col h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.footer-col p, .footer-col a { font-size: 0.95rem; line-height: 1.6; }
+.footer-socials { display: flex; gap: 0.8rem; margin-top: 0.5rem; }
+.footer-socials a {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+.footer-socials a:hover {
+  background: var(--primary);
+  color: var(--text-dark);
+}
+.footer-map {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1rem;
+}
+.footer-map iframe { width: 100%; height: 220px; border: none; filter: grayscale(80%) opacity(0.9); }
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1rem;
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .product-row { grid-template-columns: 1fr; text-align: center;}
+  .product-action { text-align: center; align-items: center;}
+  .product-action button { justify-self: center;}
+  .nav-right { margin-top: 0.5rem; }
+}
+</style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">Tonniper <span>Tech</span></div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="product.html">Products</a></li>
-        <li><a href="about Us.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>Shop Building Materials</h1>
-      <p>Add items to your order and send via WhatsApp. Delivery across Nairobi & Kenya.</p>
+<!-- NAV -->
+<nav>
+  <div class="container nav-wrap">
+    <div class="nav-left">
+      <strong>Tonniper Tech Kenya</strong> <span>Roofing Sheets</span>
     </div>
-  </section>
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="product.html">Products</a>
+    </div>
+  </div>
+</nav>
 
-  <!-- DELIVERY NOTE -->
+<!-- HERO -->
+<section class="products-hero">
   <div class="container">
-    <div class="delivery-info">
-      🚚 <strong>Delivery:</strong> Nationwide Delivery.
+    <h1>Explore Our Roofing Sheets Catalogue</h1>
+    <p>Find the right roofing solution for your home, institution, or commercial project — from classic corrugated sheets to premium tile-effect and stone coats.</p>
+  </div>
+</section>
+
+<!-- PRODUCTS CATALOGUE -->
+<section class="products">
+  <div class="container">
+    <div class="section-header">
+      <h2>Roofing Sheets & Profiles</h2>
+      <p>Compare types, features & typical performance for Kenya’s widest roofing sheet options.</p>
+    </div>
+
+    <!-- PRODUCT ROWS -->
+    <!-- Corrugated -->
+    <div class="product-row">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=contain&w=600" alt="Corrugated Profile">
+      </div>
+      <div class="product-meta">
+        <small>Corrugated Sheet</small>
+        <h3>Classic Corrugated Roofing</h3>
+        <p>Economical, strong water runoff, widely used in Kenya homes and commercial projects.</p>
+      </div>
+      <div class="product-action">
+        <div class="product-specs">
+          <p>Gauge: G28 / G30 / G32</p>
+          <p>Material: Alu-Zinc Steel</p>
+          <p>Finish: Glossy / Matte</p>
+        </div>
+        <strong>From KES 530 / m</strong>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Box Profile -->
+    <div class="product-row">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=contain&w=600" alt="Box Profile">
+      </div>
+      <div class="product-meta">
+        <small>Box Profile</small>
+        <h3>Modern Box Profile Sheets</h3>
+        <p>Flat, contemporary, ideal for modern homes and commercial roofing.</p>
+      </div>
+      <div class="product-action">
+        <div class="product-specs">
+          <p>Gauge: G28 / G30</p>
+          <p>Material: Pre-painted Steel</p>
+          <p>Finish: Glossy / Matte</p>
+        </div>
+        <strong>From KES 650 / m</strong>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Tile -->
+    <div class="product-row">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1581091215363-77f99285725b?auto=format&fit=contain&w=600" alt="Tile Effect Sheets">
+      </div>
+      <div class="product-meta">
+        <small>Tile Effect</small>
+        <h3>Tile Effect / Versatile Sheets</h3>
+        <p>Classic tile aesthetics with steel durability — perfect for homes.</p>
+      </div>
+      <div class="product-action">
+        <div class="product-specs">
+          <p>Gauge: G26 / G28 / G30</p>
+          <p>Finish: Gloss / Matte / Textured</p>
+          <p>Colors: Red, Charcoal, Maroon & more</p>
+        </div>
+        <strong>From KES 650 / m</strong>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Shingle -->
+    <div class="product-row">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1581092330342-c7f57ff30a82?auto=format&fit=contain&w=600" alt="Shingle Design Sheets">
+      </div>
+      <div class="product-meta">
+        <small>Shingle Design</small>
+        <h3>Stone-Coated / Shingle Sheets</h3>
+        <p>Premium textured sheets combining shingle aesthetics with steel strength.</p>
+      </div>
+      <div class="product-action">
+        <div class="product-specs">
+          <p>Gauge: G28 / G30</p>
+          <p>Finish: Textured matte</p>
+          <p>Enhanced UV & corrosion resistance</p>
+        </div>
+        <strong>From KES 2,000 / m</strong>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-wrap">
+    <div class="footer-col">
+      <h4>Tonniper Tech Kenya</h4>
+      <p>Supplier of roofing and construction material systems — engineered for durability, climate performance, and long-term value.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fa-solid fa-phone"></i> <a href="tel:+254700000000">+254 700 000 000</a></p>
+      <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/254700000000" target="_blank">WhatsApp</a></p>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@tonnipertech.co.ke">info@tonnipertech.co.ke</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Location</h4>
+      <p><i class="fa-solid fa-location-dot"></i> Utawala, Nairobi, Kenya</p>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
     </div>
   </div>
 
-  <!-- SHOP LAYOUT -->
-  <section class="container">
-    <div class="shop-layout">
-      <div>
-        <h2 style="font-size:1.8rem; color:var(--navy); margin-bottom:1.5rem;">Roofing & Construction Products</h2>
-        <div class="products-grid" id="productsGrid">
-          <!-- Products will be loaded by JS -->
-        </div>
-      </div>
+  <div class="container footer-map">
+    <iframe src="https://www.google.com/maps?q=Utawala%20Nairobi%20Kenya&output=embed" loading="lazy"></iframe>
+  </div>
 
-      <div class="cart-summary">
-        <div class="cart-header">Your Order</div>
-        <div class="cart-items" id="cartItems">
-          <p style="text-align:center; color:#64748b;">No items added yet</p>
-        </div>
-        <div class="cart-total">Total: <span id="cartTotal">KES 0</span></div>
-        <button class="btn-checkout" id="checkoutBtn" disabled>
-          Paybill: 123456
-          Account: YOUR NAME
-        </button>
-        <p style="font-size:0.85rem; margin-top:1rem; text-align:center; color:#64748b;">
-          We'll call to confirm delivery & payment (M-Pesa/paybill).
-        </p>
-      </div>
-    </div>
-  </section>
+  <div class="container footer-bottom">
+    <p>© <span id="year"></span> Tonniper Tech Kenya. Built for informed construction decisions.</p>
+  </div>
+</footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <div class="footer-logo">Tonniper <span>Tech</span></div>
-          <p>Comprehensive roofing and construction solutions for a stronger Kenya.</p>
-          <div class="social-icons">
-            <a href="https://wa.me/2547XXXXXXXX" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#roofing">Roofing Materials</a></li>
-            <li><a href="#gallery">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Products</h4>
-          <ul>
-            <li><a href="#roofing">Mabati Sheets</a></li>
-            <li><a href="#roofing">LGS Trusses</a></li>
-            <li><a href="#construction">Floor Tiles</a></li>
-            <li><a href="#roofing">Decra Tiles</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="copyright">
-        &copy; 2025 Tonniper Tech Kenya. All rights reserved.
-      </div>
-    </div>
-  </footer>
+<div class="cart"><i class="fa-solid fa-cart-shopping"></i> Cart (0)</div>
 
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/2547XXXXXXXX" id="whatsappFloat" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <script>
-    // Product data
-    const products = [
-      {
-        id: 1,
-        name: "PWF Mabati Sheet (0.45mm)",
-        price: 1100,
-        image: "https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?auto=format&fit=crop&w=600&q=80",
-        category: "roofing"
-      },
-      {
-        id: 2,
-        name: "Safal Premium Sheet (0.50mm)",
-        price: 1400,
-        image: "https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?auto=format&fit=crop&w=600&q=80",
-        category: "roofing"
-      },
-      {
-        id: 3,
-        name: "Rafiki Budget Sheet (0.35mm)",
-        price: 750,
-        image: "https://images.unsplash.com/photo-1623469638671-1a73b6d6b8e2?auto=format&fit=crop&w=600&q=80",
-        category: "roofing"
-      },
-      {
-        id: 4,
-        name: "Galvanized Roofing Nails",
-        price: 350,
-        unit: "per kg",
-        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/roofing-nails.png",
-        category: "accessories"
-      },
-      {
-        id: 5,
-        name: "Rubber Washers (100 pcs)",
-        price: 200,
-        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/rubber-washers.png",
-        category: "accessories"
-      },
-      {
-        id: 6,
-        name: "uPVC Gutter System (10ft)",
-        price: 2200,
-        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/upvc-gutter.png",
-        category: "roofing"
-      },
-      {
-        id: 7,
-        name: "LGS Truss (6ft)",
-        price: 1800,
-        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/lgs-truss.png",
-        category: "structural"
-      },
-      {
-        id: 8,
-        name: "Wood Grain Floor Tile",
-        price: 850,
-        unit: "per tile",
-        image: "https://pub-4a0c20d7b0c74b57a8d6e9e5f3a7d3e4.r2.dev/wood-grain-tile.png",
-        category: "construction"
-      }
-    ];
-
-    // Cart state
-    let cart = [];
-
-    // Render products
-    const productsGrid = document.getElementById('productsGrid');
-    products.forEach(product => {
-      const unit = product.unit ? ` (${product.unit})` : '';
-      productsGrid.innerHTML += `
-        <div class="product-card">
-          <div class="product-img">
-            <img src="${product.image}" alt="${product.name}">
-          </div>
-          <div class="product-info">
-            <h3>${product.name}</h3>
-            <div class="price">KES ${product.price.toLocaleString()}${unit}</div>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="adjustQty(${product.id}, -1)">-</button>
-              <input type="text" class="qty-input" id="qty-${product.id}" value="0" readonly>
-              <button class="qty-btn" onclick="adjustQty(${product.id}, 1)">+</button>
-            </div>
-            <button class="btn-add" id="btn-${product.id}" onclick="addToCart(${product.id})">
-              Add to Order
-            </button>
-          </div>
-        </div>
-      `;
-    });
-
-    // Quantity adjustment
-    window.adjustQty = function(productId, change) {
-      const input = document.getElementById(`qty-${productId}`);
-      let qty = parseInt(input.value) || 0;
-      qty = Math.max(0, qty + change);
-      input.value = qty;
-    };
-
-    // Add to cart
-    window.addToCart = function(productId) {
-      const input = document.getElementById(`qty-${productId}`);
-      const qty = parseInt(input.value) || 0;
-      if (qty <= 0) return;
-
-      const product = products.find(p => p.id === productId);
-      const existing = cart.find(item => item.id === productId);
-      
-      if (existing) {
-        existing.qty += qty;
-      } else {
-        cart.push({ ...product, qty });
-      }
-
-      input.value = 0;
-      document.getElementById(`btn-${productId}`).textContent = "Added!";
-      document.getElementById(`btn-${productId}`).className = "btn-add btn-added";
-      setTimeout(() => {
-        document.getElementById(`btn-${productId}`).textContent = "Add to Order";
-        document.getElementById(`btn-${productId}`).className = "btn-add";
-      }, 1500);
-
-      updateCart();
-    };
-
-    // Update cart display
-    function updateCart() {
-      const cartItems = document.getElementById('cartItems');
-      const cartTotal = document.getElementById('cartTotal');
-      const checkoutBtn = document.getElementById('checkoutBtn');
-
-      if (cart.length === 0) {
-        cartItems.innerHTML = '<p style="text-align:center; color:#64748b;">No items added yet</p>';
-        cartTotal.textContent = 'KES 0';
-        checkoutBtn.disabled = true;
-        return;
-      }
-
-      let total = 0;
-      let itemsHTML = '';
-      cart.forEach(item => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-        itemsHTML += `
-          <div class="cart-item">
-            <span>${item.qty}x ${item.name}</span>
-            <span>KES ${itemTotal.toLocaleString()}</span>
-          </div>
-        `;
-      });
-
-      cartItems.innerHTML = itemsHTML;
-      cartTotal.textContent = `KES ${total.toLocaleString()}`;
-      checkoutBtn.disabled = false;
-
-      // Scroll to cart on desktop
-      if (window.innerWidth >= 992) {
-        document.querySelector('.cart-summary').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  let cartCount = 0;
+  document.querySelectorAll('.product-action button').forEach(btn => {
+    btn.onclick = () => {
+      cartCount++;
+      document.querySelector('.cart').innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Cart (${cartCount})`;
     }
+  });
 
-    // Checkout via WhatsApp
-    document.getElementById('checkoutBtn').addEventListener('click', () => {
-      let message = "Hi Tonniper Tech, I'd like to place an order:\n\n";
-      let total = 0;
+  document.getElementById('year').textContent = new Date().getFullYear();
+});
+</script>
 
-      cart.forEach(item => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-        message += `- ${item.name}: ${item.qty} @ KES ${item.price.toLocaleString()} = KES ${itemTotal.toLocaleString()}\n`;
-      });
-
-      message += `\nTotal: KES ${total.toLocaleString()}\n`;
-      message += "Delivery Location: [Please specify]\n";
-      message += "Thank you!";
-
-      // URL-encode and open WhatsApp
-      const encoded = encodeURIComponent(message);
-      window.open(`https://wa.me/2547XXXXXXXX?text=${encoded}`, '_blank');
-    });
-  </script>
 </body>
 </html>
